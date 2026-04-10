@@ -1,5 +1,7 @@
 # Explora Colombia App
-<img src="![perfil.jpg](perfil.jpg)" #ioth="200" height="300"
+
+<img src="./perfil.jpg" width="200" height="300">
 
 ## Autor
+
 **Ramon Esteban Avendaño Valero**
