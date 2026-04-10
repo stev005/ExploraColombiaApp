@@ -9,39 +9,38 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import co.edu.unab.ramonavendano.exploracolombiaapp.ui.theme.ExploraColombiaAppTheme
+import me.ramonavendano.exploracolombia.LoginScreen
+import me.ramonavendano.exploracolombia.RegisterScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            ExploraColombiaAppTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+
+            val myNavController = rememberNavController()
+
+            NavHost(
+                navController = myNavController,
+                startDestination = "Login",
+                modifier = Modifier.fillMaxSize()
+            ){
+                composable (route = "Login"){
+                    LoginScreen(onLoginSuccess = {}, onNavigateToRegister = {})
+                }
+                composable (route = "register"){
+                    RegisterScreen(onRegisterSuccess = {}, onNavigateToLogin = {})
                 }
             }
         }
+
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    ExploraColombiaAppTheme {
-        Greeting("Android")
-    }
-}

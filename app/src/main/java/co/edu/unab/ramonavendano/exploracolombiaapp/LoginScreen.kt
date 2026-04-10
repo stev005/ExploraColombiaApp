@@ -1,4 +1,4 @@
-package me.fabiansuarez.exploracolombia
+package me.ramonavendano.exploracolombia
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -24,7 +24,8 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import me.fabiansuarez.exploracolombia.ui.theme.ExploraColombiaTheme
+import co.edu.unab.ramonavendano.exploracolombiaapp.ui.theme.ExploraColombiaAppTheme
+
 
 @Composable
 fun LoginScreen(
@@ -278,7 +279,7 @@ fun SocialButton(text: String, modifier: Modifier = Modifier, icon: androidx.com
 @Preview(showBackground = true)
 @Composable
 fun LoginScreenPreview() {
-    ExploraColombiaTheme {
-        LoginScreen(onLoginSuccess = {}, onNavigateToRegister = {})
-    }
+    ExploraColombiaAppTheme() {
+         LoginScreen(onLoginSuccess = {}, onNavigateToRegister = {})
+     }
 }
